@@ -4,6 +4,7 @@
 
 
 // allows me to drop std:: before array
+//please work!
 using std::array;
 
 
