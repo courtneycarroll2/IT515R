@@ -24,15 +24,15 @@ void initialize(Grid * grid) {
 	}
 
 	for (int column = 0; column < 1024; ++column) {
-		(*grid)[1023][0] = 0;
+		(*grid)[1023][column] = 0;
 	}
 }
 
 bool is_stable(Grid * grid) {
 	float epsilon = 0.1;
 	// Loop across all the interior points
-	for (int column = 1; column < 1023; ++column) {
-		for (int row = 1; row < 1023; ++row) {
+	for (int row = 1; row < 1023; ++row) {
+		for (int column = 1; column < 1023; ++column) {
 			float center = (*grid)[row][column];
 			float east = (*grid)[row][column + 1];
 			float west = (*grid)[row][column - 1];
@@ -53,8 +53,8 @@ bool is_stable(Grid * grid) {
 
 Grid * calculate_next(Grid * current) {
 	Grid * next = new Grid(*current);
-	for (int column = 1; column < 1023; ++column) {
-		for (int row = 1; row < 1023; ++row) {
+	for (int row = 1; row < 1023; ++row) {
+		for (int column = 1; column < 1023; ++column) {
 			float east = (*current)[row][column + 1];
 			float west = (*current)[row][column - 1];
 			float south = (*current)[row + 1][column];
