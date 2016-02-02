@@ -113,7 +113,7 @@ int main() {
 	// print out the number of iterations that took
 	std::cout << "Iterations:" << iterations << std::endl;
 
-	system("pause"); 
+	
 	return 0;
 }
 

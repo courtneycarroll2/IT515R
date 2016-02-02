@@ -110,7 +110,7 @@ int main() {
 	cout.write(reinterpret_cast<char*>(&columns), sizeof(uint32_t));
 	print_Grid(grid);
 
-	system("pause"); 
+
 	return 0;
 }
 
