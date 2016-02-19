@@ -101,19 +101,5 @@ int main() {
 	cout.write(reinterpret_cast<char*>(&columns), sizeof(uint32_t));
 	print_Grid(grid);
 	return 0;
-
-	while (!is_stable(grid)) {
-		// calculate the new values of the grid
-		grid = calculate_next(grid);
-		++iterations;
-		std::cout << "Iteration:" << iterations << std::endl;
-	}
-
-
-	// print out the number of iterations that took
-	std::cout << "Iterations:" << iterations << std::endl;
-
-	
-	return 0;
 }
-
+// add tags

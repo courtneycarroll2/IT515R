@@ -109,7 +109,10 @@ int main() {
 	cout.write(reinterpret_cast<char*>(&columns), sizeof(uint32_t));
 	print_Grid(grid);
 
+	delete grid;
 
 	return 0;
 }
+
+//add tags
 

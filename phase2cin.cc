@@ -114,14 +114,14 @@ int main() {
 	cin.read(reinterpret_cast<char*>(&rows), sizeof(uint32_t));
 	cin.read(reinterpret_cast<char*>(&columns), sizeof(uint32_t));
 	Grid * grid = new Grid(rows, columns);
-	
+	//lowercase grid is pointer to uppercase Grid; need to dereference grid
+	cin.read(reinterpret_cast<char*>(&(*grid)[0][0]), sizeof(float) * rows * columns);
 	
 
 	while (!is_stable(grid, epsilon, rows, columns)) {
 		// calculate the new values of the grid
 		grid = calculate_next(grid, rows, columns);
 		++iterations;
-		std::cout << "Iteration:" << iterations << std::endl;
 	}
 
 	cout.write(reinterpret_cast<char*>(&iterations), sizeof(uint32_t));
@@ -132,8 +132,10 @@ int main() {
 	cout.write(reinterpret_cast<char*>(&columns), sizeof(uint32_t));
 	print_Grid(grid, rows, columns);
 	
+	delete grid;
 
 	return 0;
 }
+// add tags
 
 //./phase2inital.exe | ./phase2cin.exe
