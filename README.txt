@@ -46,6 +46,8 @@
 
 		
 		### Build the program ###
+#Load newest CMake module:
+	#module load cmake
 #Run cmake command on IT515R directory (contains both source code and
 #CMakeLists.txt file
 	#cmake .
