@@ -99,7 +99,6 @@ int main() {
 		// calculate the new values of the grid
 		grid = calculate_next(grid);
 		++iterations;
-		std::cout << "Iteration:" << iterations << std::endl;
 	}
 
 	cout.write(reinterpret_cast<char*>(&iterations), sizeof(uint32_t));
