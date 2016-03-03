@@ -65,7 +65,7 @@ float find_max(Grid*grid, uint32_t rows, uint32_t columns) {
 	float val = 0;
 		for (uint32_t row = 0; row < rows; ++row) {
 			for (uint32_t column = 0; column < columns; ++column) {
-				if ((*grid)[column][row] > val) {
+				if ((*grid)[row][column] > val) {
 					val = (*grid)[row][column];
 				}
 			}
@@ -75,7 +75,8 @@ float find_max(Grid*grid, uint32_t rows, uint32_t columns) {
 
 int main() {
 
-
+	uint32_t iterations = 0;
+	float epsilon = 0;
 	uint32_t rows = 0;
 	uint32_t columns = 0;
 
@@ -83,6 +84,8 @@ int main() {
 	
 	//sizeof tells how many bytes: reading 4 bytes starting at address of iterations
 	// reinterpret tells it to convert from pointer to uint32_t -> pointer to char
+	cin.read(reinterpret_cast<char*>(&iterations), sizeof(uint32_t));
+	cin.read(reinterpret_cast<char*>(&epsilon), sizeof(float));
 	cin.read(reinterpret_cast<char*>(&rows), sizeof(uint32_t));
 	cin.read(reinterpret_cast<char*>(&columns), sizeof(uint32_t));
 	Grid * grid = new Grid(rows, columns);
@@ -95,7 +98,7 @@ int main() {
 	cout << "P2\n" << columns << " " << rows << "\n" << val << "\n";
 	for (uint32_t row = 0; row < rows; ++row) {
 		for (uint32_t column = 0; column < columns; ++column) {
-			cout << float{ (*grid)[rows][columns] } << " ";
+			cout << int{ (*grid)[row][column] } << " ";
 		}
 	}
 	delete grid;
